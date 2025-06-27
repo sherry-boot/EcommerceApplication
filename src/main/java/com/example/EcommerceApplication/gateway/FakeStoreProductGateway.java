@@ -1,6 +1,7 @@
 package com.example.EcommerceApplication.gateway;
 
 import com.example.EcommerceApplication.dtos.FakeStoreResponseDTO;
+import com.example.EcommerceApplication.dtos.PageProductsDTO;
 import com.example.EcommerceApplication.dtos.ProductDTO;
 import com.example.EcommerceApplication.dtos.ProductResponseDTO;
 import com.example.EcommerceApplication.gateway.api.FakeStoreCategoryApi;
@@ -30,6 +31,18 @@ public class FakeStoreProductGateway implements ProductGateway{
        }
         nmap.put("response",res);
        return nmap;
+
+    }
+
+    @Override
+    public Map<String, Object> getProductByPage(String page) throws IOException {
+        Map<String, Object> nmap = new HashMap<>();
+        PageProductsDTO res = fakeStoreProductApi.listPageRepos(page).execute().body();
+        if(res == null){
+            throw new IOException("Unable to fetch the page requested");
+        }
+        nmap.put("response", res);
+        return  nmap;
 
     }
 }

@@ -22,4 +22,10 @@ public class FakeStoreProductService implements ProductInterfaceService{
         Map<String,Object>  nmap =  productGateway.getProductById(id);
         return  nmap;
     }
+
+    @Override
+    public Map<String, Object> getProductByPage(String page) throws IOException {
+        Map<String, Object> nmap  = productGateway.getProductByPage(page);
+        return nmap;
+    }
 }

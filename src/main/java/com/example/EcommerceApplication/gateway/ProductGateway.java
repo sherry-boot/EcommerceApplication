@@ -9,4 +9,6 @@ import java.util.Map;
 @Component
 public interface ProductGateway {
     Map<String,Object> getProductById(String id) throws IOException;
+
+    Map<String, Object> getProductByPage(String page) throws IOException;
 }

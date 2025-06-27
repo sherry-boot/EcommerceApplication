@@ -10,4 +10,6 @@ import java.util.Map;
 @Component
 public interface ProductInterfaceService {
      public Map<String,Object> getProductById(String id) throws IOException;
+
+    public Map<String, Object> getProductByPage(String page) throws IOException;
 }

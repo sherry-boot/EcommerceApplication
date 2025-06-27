@@ -28,4 +28,10 @@ public class ProductContoller {
         return nmap;
     }
 
+    @GetMapping
+    public Map<String, Object> getProductByPage(@RequestParam("page") String page) throws IOException {
+        Map<String, Object> nmap = productInterfaceService.getProductByPage(page);
+        return nmap;
+    }
+
 }
