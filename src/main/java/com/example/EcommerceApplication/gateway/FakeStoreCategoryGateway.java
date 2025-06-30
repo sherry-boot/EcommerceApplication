@@ -19,7 +19,7 @@ public class FakeStoreCategoryGateway implements  CategoryGateway{
     }
 
     @Override
-    public List<CategoryDTO> getAllCategories() throws IOException {
+    public List<CategoryDTO>   getAllCategories() throws IOException {
         FakeStoreResponseDTO response = this.fakeStoreCategoryApi.getAllFakeCategories().execute().body();
         if(response == null)
         {
