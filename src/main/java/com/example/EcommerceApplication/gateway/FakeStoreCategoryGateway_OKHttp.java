@@ -1,5 +1,6 @@
 package com.example.EcommerceApplication.gateway;
 
+import com.example.EcommerceApplication.CategoryResponseMapper;
 import com.example.EcommerceApplication.dtos.CategoryDTO;
 import com.example.EcommerceApplication.dtos.FakeStoreResponseDTO;
 import com.example.EcommerceApplication.gateway.CategoryGateway;
@@ -33,11 +34,8 @@ public class FakeStoreCategoryGateway_OKHttp implements CategoryGateway {
             throw new IOException("Unable to call OkHttp or failed to fetch category");
         }
 
-        FakeStoreResponseDTO responseDTO = objectMapper.readValue(response.body().string()
-, FakeStoreResponseDTO.class);
+        FakeStoreResponseDTO responseDTO = CategoryResponseMapper.FromResponseStringToObjectMapper(response);
 
-        return responseDTO.getCategories().stream()
-                .map(CategoryDTO::new)
-                .collect(Collectors.toList());
+        return CategoryResponseMapper.toCategoriesDTO(responseDTO);
     }
 }
