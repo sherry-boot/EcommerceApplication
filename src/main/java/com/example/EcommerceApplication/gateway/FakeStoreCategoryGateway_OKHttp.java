@@ -1,6 +1,7 @@
 package com.example.EcommerceApplication.gateway;
 
-import com.example.EcommerceApplication.CategoryResponseMapper;
+import com.example.EcommerceApplication.Mappers.CategoryResponseMapper;
+import com.example.EcommerceApplication.config.OkHttpCOnfig;
 import com.example.EcommerceApplication.dtos.CategoryDTO;
 import com.example.EcommerceApplication.dtos.FakeStoreResponseDTO;
 import com.example.EcommerceApplication.gateway.CategoryGateway;
@@ -18,17 +19,15 @@ import java.util.stream.Collectors;
 public class FakeStoreCategoryGateway_OKHttp implements CategoryGateway {
 
     private final ObjectMapper objectMapper = new ObjectMapper();
+    private final OkHttpCOnfig okHttpCOnfig;
+
+    public FakeStoreCategoryGateway_OKHttp(OkHttpCOnfig okHttpCOnfig) {
+        this.okHttpCOnfig = okHttpCOnfig;
+    }
 
     @Override
     public List<CategoryDTO> getAllCategories() throws IOException {
-        OkHttpClient client = new OkHttpClient();
-
-        String url = "https://fakestoreapi.in/api/products/category";
-        Request request = new Request.Builder()
-                .url(url)
-                .build();
-
-        Response response = client.newCall(request).execute();
+        Response response = okHttpCOnfig.getResponse();
 
         if (response.body() == null || !response.isSuccessful()) {
             throw new IOException("Unable to call OkHttp or failed to fetch category");

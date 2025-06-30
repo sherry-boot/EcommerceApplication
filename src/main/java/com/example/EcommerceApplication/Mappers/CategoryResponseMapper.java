@@ -1,4 +1,4 @@
-package com.example.EcommerceApplication;
+package com.example.EcommerceApplication.Mappers;
 
 import com.example.EcommerceApplication.dtos.CategoryDTO;
 import com.example.EcommerceApplication.dtos.FakeStoreResponseDTO;

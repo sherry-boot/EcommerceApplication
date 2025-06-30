@@ -2,7 +2,6 @@ package com.example.EcommerceApplication.controllers;
 
 import com.example.EcommerceApplication.dtos.CategoryDTO;
 import com.example.EcommerceApplication.services.CategoryInterfaceService;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
