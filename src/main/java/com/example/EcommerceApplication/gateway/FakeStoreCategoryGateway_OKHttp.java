@@ -9,6 +9,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
@@ -19,21 +20,22 @@ import java.util.stream.Collectors;
 public class FakeStoreCategoryGateway_OKHttp implements CategoryGateway {
 
     private final ObjectMapper objectMapper = new ObjectMapper();
-    private final OkHttpCOnfig okHttpCOnfig;
+    private final OkHttpClient okHttpClient;
+    @Value("${external.base.url}")
+    String url;
 
-    public FakeStoreCategoryGateway_OKHttp(OkHttpCOnfig okHttpCOnfig) {
-        this.okHttpCOnfig = okHttpCOnfig;
+    public FakeStoreCategoryGateway_OKHttp(OkHttpClient okHttpClient) {
+        this.okHttpClient = okHttpClient;
     }
 
     @Override
     public List<CategoryDTO> getAllCategories() throws IOException {
-        Response response = okHttpCOnfig.getResponse();
+        Request request = new Request.Builder()
+                .url(url)
+                .build();
+        Response res = okHttpClient.newCall(request).execute();
 
-        if (response.body() == null || !response.isSuccessful()) {
-            throw new IOException("Unable to call OkHttp or failed to fetch category");
-        }
-
-        FakeStoreResponseDTO responseDTO = CategoryResponseMapper.FromResponseStringToObjectMapper(response);
+        FakeStoreResponseDTO responseDTO = CategoryResponseMapper.FromResponseStringToObjectMapper(res);
 
         return CategoryResponseMapper.toCategoriesDTO(responseDTO);
     }

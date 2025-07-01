@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 import java.io.IOException;
 import java.util.List;
 
-@Service()
+@Component()
 public class FakeStoreCategoryApiService implements CategoryInterfaceService {
 
     private final CategoryGateway categoryGateway;
@@ -20,7 +20,7 @@ public class FakeStoreCategoryApiService implements CategoryInterfaceService {
     }
     @PostConstruct
     public void init() {
-        System.out.println("💡 Using gateway class: " + categoryGateway.getClass().getName());
+        System.out.println(" Using gateway class: " + categoryGateway.getClass().getName());
     }
 
 
