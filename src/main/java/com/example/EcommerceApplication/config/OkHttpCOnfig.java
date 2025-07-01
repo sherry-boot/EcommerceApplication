@@ -4,6 +4,7 @@ import okhttp3.OkHttp;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -13,12 +14,12 @@ import java.io.IOException;
 
 public class OkHttpCOnfig {
 
-
+    @Value("${external.api.url}")
+    String url;
     @Bean
     public  Response getResponse() throws IOException {
 
         OkHttpClient client = new OkHttpClient();
-        String url = "https://fakestoreapi.in/api/products/category";
         Request request = new Request.Builder()
                 .url(url)
                 .build();
