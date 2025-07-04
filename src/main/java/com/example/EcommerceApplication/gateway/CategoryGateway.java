@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.util.List;
 
 @Component
+
 public interface CategoryGateway {
 
 

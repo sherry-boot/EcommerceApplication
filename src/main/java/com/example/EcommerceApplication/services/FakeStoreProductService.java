@@ -2,6 +2,8 @@ package com.example.EcommerceApplication.services;
 
 import com.example.EcommerceApplication.dtos.ProductDTO;
 import com.example.EcommerceApplication.gateway.ProductGateway;
+import jakarta.annotation.PostConstruct;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
@@ -13,8 +15,12 @@ public class FakeStoreProductService implements ProductInterfaceService{
 
     private final ProductGateway productGateway;
 
-    public FakeStoreProductService(ProductGateway productGateway) {
+    public FakeStoreProductService(@Qualifier("RestTemplateClient") ProductGateway productGateway) {
         this.productGateway = productGateway;
+    }
+    @PostConstruct
+    public void init() {
+        System.out.println("Using gateway class(): " + productGateway.getClass().getName());
     }
 
     @Override

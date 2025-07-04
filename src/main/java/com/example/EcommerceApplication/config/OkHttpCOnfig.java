@@ -24,8 +24,7 @@ public class OkHttpCOnfig {
                 .build();
         Response res = client.newCall(request).execute();
         return res;
-//         (Response response = client.newCall(request).execute())
-//            return response.body().string();
+
     }
 
 

@@ -1,24 +1,33 @@
 package com.example.EcommerceApplication.dtos;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.google.gson.annotations.SerializedName;
 import lombok.*;
-
 
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class ProductResponseDTO {
+public class ResponseProductDTO{
 
 	@JsonProperty("product")
-	private ProductDTO productDTO;
+	private Product product;
 
 	@JsonProperty("message")
 	private String message;
 
 	@JsonProperty("status")
 	private String status;
+
+	public Product getProduct(){
+		return product;
+	}
+
+	public String getMessage(){
+		return message;
+	}
+
+	public String getStatus(){
+		return status;
+	}
 }
