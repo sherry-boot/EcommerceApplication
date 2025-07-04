@@ -3,6 +3,7 @@ package com.example.EcommerceApplication.dtos;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.google.gson.annotations.SerializedName;
 import lombok.*;
 import org.springframework.lang.NonNull;
@@ -15,39 +16,39 @@ import org.springframework.lang.NonNull;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class ProductsItem{
 
-	@SerializedName("image")
+	@JsonProperty("image")
 	private String image;
 
-	@SerializedName("color")
+	@JsonProperty("color")
 	private String color;
 
-	@SerializedName("price")
+	@JsonProperty("price")
 	private int price;
 
-	@SerializedName("description")
+	@JsonProperty("description")
 	private String description;
 
-	@SerializedName("discount")
+	@JsonProperty("discount")
 	private int discount;
 
-	@SerializedName("model")
+	@JsonProperty("model")
 	private String model;
 
-	@SerializedName("id")
+	@JsonProperty("id")
 	private int id;
 
-	@SerializedName("title")
+	@JsonProperty("title")
 	private String title;
 
-	@SerializedName("category")
+	@JsonProperty("category")
 	private String category;
 
-	@SerializedName("brand")
+	@JsonProperty("brand")
 	private String brand;
 
-	@SerializedName("popular")
+	@JsonProperty("popular")
 	private String popular;
 
-	@SerializedName("onSale")
+	@JsonProperty("onSale")
 	private String onSale;
 }

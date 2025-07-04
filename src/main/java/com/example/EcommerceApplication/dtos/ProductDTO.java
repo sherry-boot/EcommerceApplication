@@ -1,7 +1,7 @@
 package com.example.EcommerceApplication.dtos;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.google.gson.annotations.SerializedName;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
 
 @Getter
@@ -12,34 +12,34 @@ import lombok.*;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class ProductDTO {
 
-	@SerializedName("image")
+	@JsonProperty("image")
 	private String image;
 
-	@SerializedName("color")
+	@JsonProperty("color")
 	private String color;
 
-	@SerializedName("price")
+	@JsonProperty("price")
 	private int price;
 
-	@SerializedName("description")
+	@JsonProperty("description")
 	private String description;
 
-	@SerializedName("discount")
+	@JsonProperty("discount")
 	private int discount;
 
-	@SerializedName("model")
+	@JsonProperty("model")
 	private String model;
 
-	@SerializedName("id")
+	@JsonProperty("id")
 	private int id;
 
-	@SerializedName("title")
+	@JsonProperty("title")
 	private String title;
 
-	@SerializedName("category")
+	@JsonProperty("category")
 	private String category;
 
-	@SerializedName("brand")
+	@JsonProperty("brand")
 	private String brand;
 
 
