@@ -1,6 +1,8 @@
 package com.example.EcommerceApplication.dtos;
 
 import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.google.gson.annotations.SerializedName;
 import lombok.*;
 
@@ -11,12 +13,12 @@ import lombok.*;
 @Builder
 public class PageProductsDTO{
 
-	@SerializedName("message")
+	@JsonProperty("message")
 	private String message;
 
-	@SerializedName("status")
+	@JsonProperty("status")
 	private String status;
 
-	@SerializedName("products")
+	@JsonProperty("products")
 	private List<ProductsItem> products;
 }
