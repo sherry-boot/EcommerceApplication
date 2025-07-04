@@ -14,17 +14,13 @@ import java.io.IOException;
 public class OkHttpCOnfig {
 
 
-    @Bean
-    public  Response getResponse() throws IOException {
 
-        OkHttpClient client = new OkHttpClient();
-        String url = "https://fakestoreapi.in/api/products/category";
-        Request request = new Request.Builder()
-                .url(url)
-                .build();
-        Response res = client.newCall(request).execute();
-        return res;
 
+        @Bean
+        public OkHttpClient okHttpClient() {
+            return new OkHttpClient.Builder()
+                    .retryOnConnectionFailure(true)
+                    .build();
     }
 
 

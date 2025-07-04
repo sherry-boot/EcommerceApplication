@@ -18,6 +18,7 @@ import java.util.stream.Collectors;
 @Component("fakeStoreOkHttp")
 public class FakeStoreCategoryGateway_OKHttp implements CategoryGateway {
 
+    private final ObjectMapper objectMapper = new ObjectMapper();
     private final OkHttpCOnfig okHttpCOnfig;
 
     public FakeStoreCategoryGateway_OKHttp(OkHttpCOnfig okHttpCOnfig) {
